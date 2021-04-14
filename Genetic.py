@@ -23,28 +23,48 @@ class Genetic():
         self.population_size = population_size
         self.mutation_rate = mutation_rate
         self.generation = generation
-        self.init_pop()
+        self.best_entity = None
 
     # def new_rand_entity(self, constraints)
-    def init_pop(self):
+    def init(self):
         self.population = [
             GAModel(self.constraints, self.input_shape) for i in range(self.population_size)
         ]
-        print('hallo')
-        quit()
 
-    def evaluate(self, entity):
-        pass
+    def evaluate(self):
+        return 
 
-    def fit_pop(self):
-        pass
+    def fit(self):
+
+        self.bestscore = self.best_entity.fitness if self.best_entity else -1
+        for entity in self.population:
+            fitness = entity.fit()
+            if fitness > self.bestscore:
+                wefjk nwef ergn p
+                egjr
+                 wefjkgr pjwe
+                  gjew
+                   pgjpw
+                   egjr p
+                   iwgr p
+                   iejwg p
+                   jerg 
+                   pjegr
+
+    def find_model(self):
+        self.init()
+        for g in range(self.generation):
+            self.fit()
+            self.cross()
+            self.mutate()
+        return self.best_entity.model
         # for p in population:
         #     p.fitness = score(p)
 
-    def cross_pop(self):
+    def cross(self):
         pass
 
-    def mutate_pop(self):
+    def mutate(self):
         pass
 
 
