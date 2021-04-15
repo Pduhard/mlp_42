@@ -114,6 +114,8 @@ if __name__ == "__main__":
     plt.show()
     best = 100
     best_seed = 0 
+    best_a = 0
+    best_seed_a = 0 
     for i in range(1000):
         Env.set_seed(i)
         model = get_basic_model()
@@ -131,7 +133,10 @@ if __name__ == "__main__":
         if eval_log["loss"] < best:
             best = eval_log["loss"]
             best_seed = i
-        print(f'seed: {i}, score: {eval_log["loss"]} best: {(best, best_seed)}')
+        if eval_log["categorical_accuracy"] > best_a:
+            best_a = eval_log["categorical_accuracy"]
+            best_seed_a = i
+        print(f'seed: {i}, score: {eval_log["loss"]} best: {(best, best_seed), (best_a, best_seed_a)}')
     plt.plot(history['categorical_accuracy'])
     plt.plot(history['val_categorical_accuracy'])
     plt.plot(history['accuracy'])
