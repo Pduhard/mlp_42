@@ -1,7 +1,8 @@
 import numpy as np
+from Protodeep.initializers.Initializer import Initializer
 
 
-class GlorotUniform():
+class GlorotUniform(Initializer):
     """
         Glorot Uniform initializer
 
@@ -9,5 +10,5 @@ class GlorotUniform():
 
     """
 
-    def __call__(self, shape, dtype=None):
+    def initialize(self, shape, dtype=None, *args, **kwargs):
         return np.random.randn(*shape) * np.sqrt(6. / (shape[1] + shape[0]))

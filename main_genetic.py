@@ -18,25 +18,25 @@ if __name__ == "__main__":
     gen = Genetic(
         constraints=[
             {
-                'unit_range': [20, 80],
-                'fas': ['Linear', 'Relu', 'Sigmoid', 'Softmax', 'Tanh'],
-                'initializers': ['GlorotNormal', 'GlorotUniform', 'HeNormal', 'RandomNormal', 'Zeros'],
-                'regularizers': ['L1', 'L2', 'L1L2']
+                'unit': [20, 80],
+                'fa': ['linear', 'relu', 'sigmoid', 'softmax', 'tanh'],
+                'initializer': ['GlorotNormal', 'GlorotUniform', 'HeNormal', 'RandomNormal'],
+                'regularizer': [None]
             },
             {
-                'unit_range': [10, 30],
-                'fas': ['Linear', 'Relu', 'Sigmoid', 'Softmax', 'Tanh'],
-                'initializers': ['GlorotNormal', 'GlorotUniform', 'HeNormal', 'RandomNormal', 'Zeros'],
-                'regularizers': ['L1', 'L2', 'L1L2']
+                'unit': [10, 30],
+                'fa': ['linear', 'relu', 'sigmoid', 'softmax', 'tanh'],
+                'initializer': ['GlorotNormal', 'GlorotUniform', 'HeNormal', 'RandomNormal'],
+                'regularizer': [None]
             },
             {
-                'unit_range': [2],
-                'fas': ['Softmax'],
-                'initializers': ['GlorotNormal', 'GlorotUniform', 'HeNormal', 'RandomNormal', 'Zeros'],
-                'regularizers': [None]
+                'unit': [2],
+                'fa': ['softmax'],
+                'initializer': ['GlorotNormal', 'GlorotUniform', 'HeNormal', 'RandomNormal'],
+                'regularizer': [None]
             }
         ],
         dataset=dataset
     )
 
-    gen.find_model()
+    model = gen.find_model()
